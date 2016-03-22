@@ -34,4 +34,8 @@ public class CellBlock1138CipherWrapper implements Decoder {
     public String decrypt(String encrypted) {
         return decoder.decrypt(encrypted);
     }
+
+    public static Decoder getInstance() {
+        return new CellBlock1138CipherWrapper(new AESCipher());
+    }
 }

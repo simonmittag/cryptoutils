@@ -7,13 +7,13 @@ package com.simonmittag.cryptoutils;
  * @author simonmittag
  * @since <version>
  */
-public class CellBlock1138CipherWrapper implements Decoder {
+public class SymmetricKeyCipherWrapper implements Decoder {
     public static final String SYSTEM_WIDE_SYMMETRIC_SECRET_KEY = "SYSTEM_WIDE_SYMMETRIC_SECRET_KEY";
     public static final String SYSTEM_WIDE_INIT_VECTOR = "SYSTEM_WIDE_INIT_VECTOR";
 
     protected Decoder decoder;
 
-    public CellBlock1138CipherWrapper(Decoder decoder) {
+    public SymmetricKeyCipherWrapper(Decoder decoder) {
         this.decoder = decoder;
         this.setKey(System.getProperty(SYSTEM_WIDE_SYMMETRIC_SECRET_KEY));
         this.setInitVector(System.getProperty(SYSTEM_WIDE_INIT_VECTOR));
@@ -36,6 +36,6 @@ public class CellBlock1138CipherWrapper implements Decoder {
     }
 
     public static Decoder getInstance() {
-        return new CellBlock1138CipherWrapper(new AESCipher());
+        return new SymmetricKeyCipherWrapper(new AESCipher());
     }
 }

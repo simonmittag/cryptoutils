@@ -1,9 +1,9 @@
 /*
  * DecoderFactory
  */
-package com.simonmittag.cryptoutils;
+package com.simonmittag.cryptoutils.symmetric;
 
-import static com.simonmittag.cryptoutils.PropertyBasedCipherKeyWrapper.*;
+import static com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrapper.*;
 
 /**
  * @author simonmittag

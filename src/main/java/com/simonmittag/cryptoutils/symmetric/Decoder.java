@@ -1,7 +1,7 @@
 /**
  * Decoder
  */
-package com.simonmittag.cryptoutils;
+package com.simonmittag.cryptoutils.symmetric;
 
 /**
  * @author simonmittag

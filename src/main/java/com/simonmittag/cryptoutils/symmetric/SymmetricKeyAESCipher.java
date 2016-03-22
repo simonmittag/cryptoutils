@@ -1,7 +1,7 @@
 /*
  * AESCipher
  */
-package com.simonmittag.cryptoutils;
+package com.simonmittag.cryptoutils.symmetric;
 
 import org.apache.commons.codec.binary.Base64;
 

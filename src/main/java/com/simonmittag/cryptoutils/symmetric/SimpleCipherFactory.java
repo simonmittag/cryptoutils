@@ -9,8 +9,9 @@ import static com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrappe
  * @author simonmittag
  * @since <version>
  */
-public class DecoderFactory {
-    public static Decoder getInstance() {
+public class SimpleCipherFactory {
+
+    public static SimpleCipher getInstance() {
         if(uninitialized(SYSTEM_WIDE_SYMMETRIC_SECRET_KEY)) {
             throw new RuntimeException(
                     "DecoderFactory not initialized, have you set SYSTEM_WIDE_SYMMETRIC_SECRET_KEY as System property with a 16 Byte key?");

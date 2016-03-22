@@ -7,31 +7,31 @@ package com.simonmittag.cryptoutils.symmetric;
  * @author simonmittag
  * @since <version>
  */
-public class PropertyBasedCipherKeyWrapper implements Decoder {
+public class PropertyBasedCipherKeyWrapper implements SimpleCipher {
     public static final String SYSTEM_WIDE_SYMMETRIC_SECRET_KEY = "SYSTEM_WIDE_SYMMETRIC_SECRET_KEY";
     public static final String SYSTEM_WIDE_INIT_VECTOR = "SYSTEM_WIDE_INIT_VECTOR";
 
-    protected Decoder decoder;
+    protected SimpleCipher cipher;
 
-    public PropertyBasedCipherKeyWrapper(Decoder decoder) {
-        this.decoder = decoder;
+    public PropertyBasedCipherKeyWrapper(SimpleCipher cipher) {
+        this.cipher = cipher;
         this.setKey(System.getProperty(SYSTEM_WIDE_SYMMETRIC_SECRET_KEY));
         this.setInitVector(System.getProperty(SYSTEM_WIDE_INIT_VECTOR));
     }
 
     public void setKey(String key) {
-        this.decoder.setKey(key);
+        this.cipher.setKey(key);
     }
 
     public void setInitVector(String initVector) {
-        this.decoder.setInitVector(initVector);
+        this.cipher.setInitVector(initVector);
     }
 
     public String encrypt(String raw) {
-        return decoder.encrypt(raw);
+        return cipher.encrypt(raw);
     }
 
     public String decrypt(String encrypted) {
-        return decoder.decrypt(encrypted);
+        return cipher.decrypt(encrypted);
     }
 }

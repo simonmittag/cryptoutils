@@ -1,8 +1,8 @@
 package com.simonmittag.symmetric;
 
-import com.simonmittag.cryptoutils.symmetric.DecoderFactory;
+import com.simonmittag.cryptoutils.symmetric.SimpleCipherFactory;
 import com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrapper;
-import com.simonmittag.cryptoutils.symmetric.Decoder;
+import com.simonmittag.cryptoutils.symmetric.SimpleCipher;
 import junit.framework.TestCase;
 
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 /**
  * Unit test for simple App.
  */
-public class PropertyBasedCipherKeyWrapperTest extends TestCase {
+public class PropertyBasedSimpleCipherKeyWrapperTest extends TestCase {
 
     @Override
     protected void setUp() throws Exception {
@@ -27,21 +27,21 @@ public class PropertyBasedCipherKeyWrapperTest extends TestCase {
      */
     public void testEncryptDecrypt() {
         long before = System.currentTimeMillis();
-        Decoder decoder = DecoderFactory.getInstance();
+        SimpleCipher cipher = SimpleCipherFactory.getInstance();
         long invocation = System.currentTimeMillis() - before;
         System.out.println("it took " + invocation + " ms to create the Decoder instance");
 
-        assertFalse("Hello World".equals(decoder.encrypt("Hello World")));
-        assertTrue("Hello World".equals(decoder.decrypt(decoder.encrypt("Hello World"))));
+        assertFalse("Hello World".equals(cipher.encrypt("Hello World")));
+        assertTrue("Hello World".equals(cipher.decrypt(cipher.encrypt("Hello World"))));
 
-        assertTrue("a".equals(decoder.decrypt(decoder.encrypt("a"))));
+        assertTrue("a".equals(cipher.decrypt(cipher.encrypt("a"))));
     }
 
     public void testBigEncryptDecrypt() throws URISyntaxException, IOException {
         String content = new String(Files.readAllBytes(
                 Paths.get(ClassLoader.getSystemResource("war_of_the_worlds.txt").toURI())
         ));
-        Decoder decoder = DecoderFactory.getInstance();
+        SimpleCipher decoder = SimpleCipherFactory.getInstance();
 
         long before = System.currentTimeMillis();
         String encrypted = decoder.encrypt(content);

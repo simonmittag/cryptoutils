@@ -11,9 +11,11 @@ import javax.crypto.spec.SecretKeySpec;
 
 /**
  * @author simonmittag
+ * AES Cipher
+ * UTF-8
  * @since <version>
  */
-public class AESCipher implements Decoder {
+public class SymmetricKeyAESCipher implements Decoder {
     protected static final String UTF_8 = "UTF-8";
     protected static final String AES = "AES";
     protected static final String AES_CBC_PKCS5_PADDING = AES + "/CBC/PKCS5PADDING";
@@ -21,7 +23,7 @@ public class AESCipher implements Decoder {
     protected String key = null;
     protected String initVector = null;
 
-    public AESCipher() {
+    public SymmetricKeyAESCipher() {
     }
 
     public void setKey(String key) {

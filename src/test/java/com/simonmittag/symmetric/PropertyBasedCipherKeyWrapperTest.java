@@ -1,4 +1,4 @@
-package com.simonmittag;
+package com.simonmittag.symmetric;
 
 import com.simonmittag.cryptoutils.symmetric.DecoderFactory;
 import com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrapper;
@@ -8,7 +8,7 @@ import junit.framework.TestCase;
 /**
  * Unit test for simple App.
  */
-public class CryptoUtilsTest extends TestCase {
+public class PropertyBasedCipherKeyWrapperTest extends TestCase {
 
     /**
      * Test the encryption decryption util. Keys are 16 Bit

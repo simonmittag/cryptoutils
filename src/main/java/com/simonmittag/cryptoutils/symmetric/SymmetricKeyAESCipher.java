@@ -19,6 +19,8 @@ public class SymmetricKeyAESCipher implements SimpleCipher {
     protected static final String AES = "AES";
     protected static final String AES_CBC_PKCS5_PADDING = AES + "/CBC/PKCS5PADDING";
 
+    protected static final String CRYPTO_ERROR = "crypto error, cause: ";
+
     protected String key = null;
     protected String initVector = null;
 
@@ -42,7 +44,7 @@ public class SymmetricKeyAESCipher implements SimpleCipher {
             byte[] encrypted = cipher.doFinal(raw.getBytes());
             return Base64.encodeBase64String(encrypted);
         } catch (Exception ex) {
-            throw new RuntimeException("error during encryption, cause: " + ex.getMessage());
+            throw new RuntimeException(CRYPTO_ERROR + ex.getMessage());
         }
     }
 
@@ -55,7 +57,7 @@ public class SymmetricKeyAESCipher implements SimpleCipher {
             byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
             return new String(original, UTF_8);
         } catch (Exception ex) {
-            throw new RuntimeException("error during decryption, cause: " + ex.getMessage());
+            throw new RuntimeException(CRYPTO_ERROR + ex.getMessage());
         }
     }
 }

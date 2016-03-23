@@ -3,7 +3,7 @@
  */
 package com.simonmittag.cryptoutils.asymmetric;
 
-import com.simonmittag.cryptoutils.symmetric.SimpleCipher;
+import com.simonmittag.cryptoutils.symmetric.SimpleSymmetricCipher;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;
@@ -15,7 +15,7 @@ import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.*;
  * @author simonmittag
  * @since <version>
  */
-public class AsymmetricKeyRSACipher implements SimpleCipher {
+public class AsymmetricKeyRSACipher implements SimpleSymmetricCipher {
     protected static final String UTF_8 = "UTF-8";
     protected static final String RSA_ECB_PKCS1_PADDING = "RSA/ECB/PKCS1Padding";
     protected static final String BC = "BC";

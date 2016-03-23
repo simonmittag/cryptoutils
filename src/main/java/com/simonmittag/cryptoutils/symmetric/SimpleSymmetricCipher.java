@@ -7,7 +7,7 @@ package com.simonmittag.cryptoutils.symmetric;
  * @author simonmittag
  * @since <version>
  */
-public interface SimpleCipher {
+public interface SimpleSymmetricCipher {
 
     public String encrypt(String raw);
     public String decrypt(String encrypted);

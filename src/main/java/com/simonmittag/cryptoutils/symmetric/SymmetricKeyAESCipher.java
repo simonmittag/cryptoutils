@@ -14,7 +14,7 @@ import javax.crypto.spec.SecretKeySpec;
  * UTF-8
  * @since <version>
  */
-public class SymmetricKeyAESCipher implements SimpleCipher {
+public class SymmetricKeyAESCipher implements SimpleSymmetricCipher {
     protected static final String UTF_8 = "UTF-8";
     protected static final String AES = "AES";
     protected static final String AES_CBC_PKCS5_PADDING = AES + "/CBC/PKCS5PADDING";

@@ -4,13 +4,14 @@
 package com.simonmittag.cryptoutils.asymmetric;
 
 import com.simonmittag.cryptoutils.SimpleCipher;
-import com.simonmittag.cryptoutils.symmetric.SimpleSymmetricCipher;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
-import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.*;
+
+import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.deserializePrivateKey;
+import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.deserializePublicKey;
 
 /**
  * @author simonmittag

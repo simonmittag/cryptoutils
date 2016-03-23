@@ -19,17 +19,31 @@ import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.deserializePublic
  */
 public class AsymmetricKeyRSACipher implements SimpleCipher {
     protected static final String UTF_8 = "UTF-8";
-    protected static final String RSA_ECB_PKCS1_PADDING = "RSA/ECB/PKCS1Padding";
 
     Cipher cipher;
     RSAPublicKey publicKey;
     RSAPrivateKey privateKey;
 
+    public AsymmetricKeyRSACipher() {
+        //do nothing for later init
+    }
+
     public AsymmetricKeyRSACipher(String publicKey, String privateKey) {
+        this.setPublicKey(publicKey);
+        this.setPrivateKey(privateKey);
+    }
+
+    public void setPublicKey(String publicKey) {
         try {
             this.publicKey = (RSAPublicKey) deserializePublicKey(publicKey);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void setPrivateKey(String privateKey) {
+        try {
             this.privateKey = (RSAPrivateKey) deserializePrivateKey(privateKey);
-            this.cipher = Cipher.getInstance(RSA_ECB_PKCS1_PADDING);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

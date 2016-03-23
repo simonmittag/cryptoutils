@@ -9,7 +9,7 @@ import static com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrappe
  * @author simonmittag
  * @since <version>
  */
-public class SimpleCipherFactory {
+public class CipherFactory {
 
     public static SimpleSymmetricCipher getInstance() {
         if(uninitialized(SYSTEM_WIDE_SYMMETRIC_SECRET_KEY)) {

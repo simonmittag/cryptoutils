@@ -1,6 +1,6 @@
 package com.simonmittag.symmetric;
 
-import com.simonmittag.cryptoutils.symmetric.SimpleCipherFactory;
+import com.simonmittag.cryptoutils.symmetric.CipherFactory;
 import com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrapper;
 import com.simonmittag.cryptoutils.symmetric.SimpleSymmetricCipher;
 import junit.framework.TestCase;
@@ -27,7 +27,7 @@ public class PropertyBasedSimpleCipherKeyWrapperTest extends TestCase {
      */
     public void testEncryptDecrypt() {
         long before = System.currentTimeMillis();
-        SimpleSymmetricCipher cipher = SimpleCipherFactory.getInstance();
+        SimpleSymmetricCipher cipher = CipherFactory.getInstance();
         long invocation = System.currentTimeMillis() - before;
         System.out.println("it took " + invocation + " ms to create the Decoder instance");
 
@@ -41,7 +41,7 @@ public class PropertyBasedSimpleCipherKeyWrapperTest extends TestCase {
         String content = new String(Files.readAllBytes(
                 Paths.get(ClassLoader.getSystemResource("war_of_the_worlds.txt").toURI())
         ));
-        SimpleSymmetricCipher decoder = SimpleCipherFactory.getInstance();
+        SimpleSymmetricCipher decoder = CipherFactory.getInstance();
 
         long before = System.currentTimeMillis();
         String encrypted = decoder.encrypt(content);

@@ -7,13 +7,9 @@ import com.simonmittag.cryptoutils.symmetric.SimpleCipher;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
-import java.security.GeneralSecurityException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.*;
 
 /**
  * @author simonmittag
@@ -30,8 +26,8 @@ public class AsymmetricKeyRSACipher implements SimpleCipher {
 
     public AsymmetricKeyRSACipher(String publicKey, String privateKey) {
         try {
-            this.publicKey = (RSAPublicKey) KeyHelper.deserializePublicKey(publicKey);
-            this.privateKey = (RSAPrivateKey) KeyHelper.deserializePrivateKey(privateKey);
+            this.publicKey = (RSAPublicKey) deserializePublicKey(publicKey);
+            this.privateKey = (RSAPrivateKey) deserializePrivateKey(privateKey);
             this.cipher = Cipher.getInstance(RSA_ECB_PKCS1_PADDING, BC);
         } catch (Exception e) {
             e.printStackTrace();

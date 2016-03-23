@@ -3,14 +3,24 @@
  */
 package com.simonmittag.cryptoutils.symmetric;
 
+import com.simonmittag.cryptoutils.SimpleCipher;
+
 /**
  * @author simonmittag
- * @since <version>
+ * Utility wrapper interface for Java JCE symmetric ciphers.
  */
-public interface SimpleSymmetricCipher {
+public interface SimpleSymmetricCipher extends SimpleCipher {
 
-    public String encrypt(String raw);
-    public String decrypt(String encrypted);
+    /**
+     * Set the symmetric key as String
+     * @param key
+     */
     public void setKey(String key);
+
+
+    /**
+     * Set the asymmetric key as Strign
+     * @param initVector
+     */
     public void setInitVector(String initVector);
 }

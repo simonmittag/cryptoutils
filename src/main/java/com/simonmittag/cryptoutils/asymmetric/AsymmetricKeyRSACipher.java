@@ -15,7 +15,7 @@ import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.*;
  * @author simonmittag
  * @since <version>
  */
-public class AsymmetricKeyRSACipher implements SimpleSymmetricCipher {
+public class AsymmetricKeyRSACipher implements SimpleCipher {
     protected static final String UTF_8 = "UTF-8";
     protected static final String RSA_ECB_PKCS1_PADDING = "RSA/ECB/PKCS1Padding";
     protected static final String BC = "BC";

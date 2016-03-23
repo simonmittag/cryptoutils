@@ -37,7 +37,6 @@ public class AsymmetricRSAKeyPairGenerator {
 
         writeKeyToFile(serializePublicKey(keyPair.getPublic()).getBytes(UTF_8), publicKeyFile);
         writeKeyToFile(serializePrivateKey(keyPair.getPrivate()).getBytes(UTF_8), privateKeyFile);
-
     }
 
     protected static void writeKeyToFile(byte[] bytes, File keyFile) throws IOException, GeneralSecurityException {

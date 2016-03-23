@@ -3,6 +3,7 @@
  */
 package com.simonmittag.cryptoutils.asymmetric;
 
+import com.simonmittag.cryptoutils.SimpleCipher;
 import com.simonmittag.cryptoutils.symmetric.SimpleSymmetricCipher;
 import org.apache.commons.codec.binary.Base64;
 
@@ -52,13 +53,5 @@ public class AsymmetricKeyRSACipher implements SimpleCipher {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public void setKey(String key) {
-        //do nothing
-    }
-
-    public void setInitVector(String initVector) {
-        //do nothing.
     }
 }

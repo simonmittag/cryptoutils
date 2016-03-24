@@ -10,16 +10,13 @@ import static com.simonmittag.cryptoutils.PropertyHelper.getEnvOrProperty;
  * @author simonmittag
  * @since <version>
  */
-public class PropertyBasedCipherKeyWrapper implements SimpleCipher {
-    public static final String ASYMMETRIC_PRIVATE_KEY = "ASYMMETRIC_PRIVATE_KEY";
-    public static final String ASYMMETRIC_PUBLIC_KEY = "ASYMMETRIC_PUBLIC_KEY";
-
+public class PropertyBasedCipherKeyWrapper implements SimpleAsymmetricCipher {
     protected SimpleAsymmetricCipher cipher;
 
     public PropertyBasedCipherKeyWrapper(SimpleAsymmetricCipher cipher) {
         this.cipher = cipher;
-        this.cipher.setPublicKey(getEnvOrProperty(ASYMMETRIC_PUBLIC_KEY));
-        this.cipher.setPrivateKey(getEnvOrProperty(ASYMMETRIC_PRIVATE_KEY));
+        this.cipher.setPublicKey(getEnvOrProperty(SimpleAsymmetricCipher.ASYMMETRIC_PUBLIC_KEY));
+        this.cipher.setPrivateKey(getEnvOrProperty(SimpleAsymmetricCipher.ASYMMETRIC_PRIVATE_KEY));
     }
 
     public String encrypt(String raw) {
@@ -28,5 +25,13 @@ public class PropertyBasedCipherKeyWrapper implements SimpleCipher {
 
     public String decrypt(String encrypted) {
         return cipher.decrypt(encrypted);
+    }
+
+    public void setPublicKey(String publicKey) {
+        this.cipher.setPublicKey(publicKey);
+    }
+
+    public void setPrivateKey(String privateKey) {
+        this.cipher.setPrivateKey(privateKey);
     }
 }

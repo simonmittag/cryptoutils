@@ -12,11 +12,11 @@ import static com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrappe
 public class CipherFactory {
 
     public static SimpleSymmetricCipher getInstance() {
-        if(uninitialized(SYSTEM_WIDE_SYMMETRIC_SECRET_KEY)) {
+        if(uninitialized(SYMMETRIC_SECRET_KEY)) {
             throw new RuntimeException(
                     "DecoderFactory not initialized, have you set SYSTEM_WIDE_SYMMETRIC_SECRET_KEY as System property with a 16 Byte key?");
         }
-        if(uninitialized(SYSTEM_WIDE_INIT_VECTOR)) {
+        if(uninitialized(INIT_VECTOR)) {
             throw new RuntimeException(
                     "DecoderFactory not initialized, have you set SYSTEM_WIDE_INIT_VECTOR as System property with a 16 Byte value?");
         }

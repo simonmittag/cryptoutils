@@ -4,6 +4,7 @@
 package com.simonmittag.cryptoutils.asymmetric;
 
 import com.simonmittag.cryptoutils.SimpleCipher;
+import static com.simonmittag.cryptoutils.PropertyHelper.getEnvOrProperty;
 
 /**
  * @author simonmittag
@@ -17,8 +18,8 @@ public class PropertyBasedCipherKeyWrapper implements SimpleCipher {
 
     public PropertyBasedCipherKeyWrapper(SimpleAsymmetricCipher cipher) {
         this.cipher = cipher;
-        this.cipher.setPublicKey(System.getProperty(ASYMMETRIC_PUBLIC_KEY));
-        this.cipher.setPrivateKey(System.getProperty(ASYMMETRIC_PRIVATE_KEY));
+        this.cipher.setPublicKey(getEnvOrProperty(ASYMMETRIC_PUBLIC_KEY));
+        this.cipher.setPrivateKey(getEnvOrProperty(ASYMMETRIC_PRIVATE_KEY));
     }
 
     public String encrypt(String raw) {

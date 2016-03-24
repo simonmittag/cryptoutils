@@ -3,20 +3,22 @@
  */
 package com.simonmittag.cryptoutils.symmetric;
 
+import static com.simonmittag.cryptoutils.PropertyHelper.getEnvOrProperty;
+
 /**
  * @author simonmittag
  * @since <version>
  */
 public class PropertyBasedCipherKeyWrapper implements SimpleSymmetricCipher {
-    public static final String SYSTEM_WIDE_SYMMETRIC_SECRET_KEY = "SYSTEM_WIDE_SYMMETRIC_SECRET_KEY";
-    public static final String SYSTEM_WIDE_INIT_VECTOR = "SYSTEM_WIDE_INIT_VECTOR";
+    public static final String SYMMETRIC_SECRET_KEY = "SYSTEM_WIDE_SYMMETRIC_SECRET_KEY";
+    public static final String INIT_VECTOR = "SYSTEM_WIDE_INIT_VECTOR";
 
     protected SimpleSymmetricCipher cipher;
 
     public PropertyBasedCipherKeyWrapper(SimpleSymmetricCipher cipher) {
         this.cipher = cipher;
-        this.setKey(System.getProperty(SYSTEM_WIDE_SYMMETRIC_SECRET_KEY));
-        this.setInitVector(System.getProperty(SYSTEM_WIDE_INIT_VECTOR));
+        this.setKey(getEnvOrProperty(SYMMETRIC_SECRET_KEY));
+        this.setInitVector(getEnvOrProperty(INIT_VECTOR));
     }
 
     public void setKey(String key) {

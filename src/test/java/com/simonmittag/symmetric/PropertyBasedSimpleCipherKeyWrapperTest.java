@@ -18,8 +18,8 @@ public class PropertyBasedSimpleCipherKeyWrapperTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        System.setProperty(PropertyBasedCipherKeyWrapper.SYSTEM_WIDE_SYMMETRIC_SECRET_KEY, "0000888800008888");
-        System.setProperty(PropertyBasedCipherKeyWrapper.SYSTEM_WIDE_INIT_VECTOR, "1111222233334444");
+        System.setProperty(PropertyBasedCipherKeyWrapper.SYMMETRIC_SECRET_KEY, "0000888800008888");
+        System.setProperty(PropertyBasedCipherKeyWrapper.INIT_VECTOR, "1111222233334444");
     }
 
     /**

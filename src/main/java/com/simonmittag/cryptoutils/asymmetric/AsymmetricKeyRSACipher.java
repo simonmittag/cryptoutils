@@ -7,6 +7,8 @@ import com.simonmittag.cryptoutils.SimpleCipher;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
+import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 
@@ -19,18 +21,28 @@ import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.deserializePublic
  */
 public class AsymmetricKeyRSACipher implements SimpleCipher {
     protected static final String UTF_8 = "UTF-8";
+    protected static String RSA_ECB_PKCS1_PADDING = "RSA/ECB/PKCS1Padding";
 
     Cipher cipher;
     RSAPublicKey publicKey;
     RSAPrivateKey privateKey;
 
     public AsymmetricKeyRSACipher() {
-        //do nothing for later init
+        try {
+            this.cipher = Cipher.getInstance(RSA_ECB_PKCS1_PADDING);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public AsymmetricKeyRSACipher(String publicKey, String privateKey) {
-        this.setPublicKey(publicKey);
-        this.setPrivateKey(privateKey);
+        try {
+            this.publicKey = (RSAPublicKey) deserializePublicKey(publicKey);
+            this.privateKey = (RSAPrivateKey) deserializePrivateKey(privateKey);
+            this.cipher = Cipher.getInstance(RSA_ECB_PKCS1_PADDING);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void setPublicKey(String publicKey) {

@@ -13,10 +13,12 @@ public class PropertyBasedCipherKeyWrapper implements SimpleCipher {
     public static final String ASYMMETRIC_PRIVATE_KEY = "ASYMMETRIC_PRIVATE_KEY";
     public static final String ASYMMETRIC_PUBLIC_KEY = "ASYMMETRIC_PUBLIC_KEY";
 
-    protected SimpleCipher cipher;
+    protected SimpleAsymmetricCipher cipher;
 
-    public PropertyBasedCipherKeyWrapper(SimpleCipher cipher) {
+    public PropertyBasedCipherKeyWrapper(SimpleAsymmetricCipher cipher) {
         this.cipher = cipher;
+        this.cipher.setPublicKey(System.getProperty(ASYMMETRIC_PUBLIC_KEY));
+        this.cipher.setPrivateKey(System.getProperty(ASYMMETRIC_PRIVATE_KEY));
     }
 
     public String encrypt(String raw) {

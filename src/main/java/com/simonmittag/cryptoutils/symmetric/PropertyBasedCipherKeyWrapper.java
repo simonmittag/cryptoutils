@@ -10,8 +10,8 @@ import static com.simonmittag.cryptoutils.PropertyHelper.getEnvOrProperty;
  * @since <version>
  */
 public class PropertyBasedCipherKeyWrapper implements SimpleSymmetricCipher {
-    public static final String SYMMETRIC_SECRET_KEY = "SYSTEM_WIDE_SYMMETRIC_SECRET_KEY";
-    public static final String INIT_VECTOR = "SYSTEM_WIDE_INIT_VECTOR";
+    public static final String SYMMETRIC_SECRET_KEY = "SYMMETRIC_SECRET_KEY";
+    public static final String INIT_VECTOR = "INIT_VECTOR";
 
     protected SimpleSymmetricCipher cipher;
 

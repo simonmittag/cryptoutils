@@ -1,8 +1,5 @@
-package com.simonmittag.symmetric;
+package com.simonmittag.cryptoutils.symmetric;
 
-import com.simonmittag.cryptoutils.symmetric.CipherFactory;
-import com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrapper;
-import com.simonmittag.cryptoutils.symmetric.SimpleSymmetricCipher;
 import junit.framework.TestCase;
 
 import java.io.IOException;

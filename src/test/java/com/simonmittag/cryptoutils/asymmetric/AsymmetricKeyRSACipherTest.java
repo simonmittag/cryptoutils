@@ -1,10 +1,9 @@
 /*
  * AsymmetricKeyRSACipherTest
  */
-package com.simonmittag.asymmetric;
+package com.simonmittag.cryptoutils.asymmetric;
 
 import com.simonmittag.cryptoutils.SimpleCipher;
-import com.simonmittag.cryptoutils.asymmetric.AsymmetricKeyRSACipher;
 import junit.framework.TestCase;
 
 import java.nio.file.Files;

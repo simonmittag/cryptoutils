@@ -8,6 +8,7 @@ import org.apache.commons.codec.binary.Base64;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 
 /**
  * @author simonmittag
@@ -81,7 +82,15 @@ public class SymmetricKeyAESCipher implements SimpleSymmetricCipher {
             if(bytes.length==16) {
                 return bytes;
             } else {
-                throw new RuntimeException("uh oh, i can't convert your key or init vector to a 16 byte array");
+                if(bytes.length>16) {
+                    return Arrays.copyOf(bytes, 16);
+                } else {
+                    int offset = bytes.length;
+                    byte[] expanded = new byte[16];
+                    System.arraycopy(bytes, 0, expanded, 0, offset);
+                    Arrays.fill(expanded, offset, 16, (byte)44);
+                    return expanded;
+                }
             }
         }
     }

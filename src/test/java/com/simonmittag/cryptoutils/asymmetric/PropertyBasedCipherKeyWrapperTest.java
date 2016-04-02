@@ -1,12 +1,8 @@
 /*
  * PropertyBasedCipherKeyWrapperTest
  */
-package com.simonmittag.asymmetric;
+package com.simonmittag.cryptoutils.asymmetric;
 
-import com.simonmittag.cryptoutils.asymmetric.AsymmetricKeyRSACipher;
-import com.simonmittag.cryptoutils.asymmetric.CipherFactory;
-import com.simonmittag.cryptoutils.asymmetric.PropertyBasedCipherKeyWrapper;
-import com.simonmittag.cryptoutils.asymmetric.SimpleAsymmetricCipher;
 import junit.framework.TestCase;
 
 /**

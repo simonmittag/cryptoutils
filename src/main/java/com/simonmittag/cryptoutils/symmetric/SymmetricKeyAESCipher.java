@@ -97,6 +97,7 @@ public class SymmetricKeyAESCipher implements SimpleSymmetricCipher {
     }
 
     protected int getFill() {
-        return Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.MONTH)+cal.get(Calendar.DAY_OF_MONTH);
     }
 }

@@ -69,7 +69,7 @@ public class SymmetricKeyAESCipher implements SimpleSymmetricCipher {
     }
 
     /**
-     * Use this to get a 16 byte array out of a String that is *either* UTF-8 or BASE64 encoded.
+     * Use this to get a 16 byte array out of any String that is *either* UTF-8 or BASE64 encoded.
      * @param encoded
      * @return
      * @throws UnsupportedEncodingException

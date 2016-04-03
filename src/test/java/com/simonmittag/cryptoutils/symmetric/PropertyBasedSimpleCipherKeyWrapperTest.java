@@ -2,6 +2,7 @@ package com.simonmittag.cryptoutils.symmetric;
 
 import junit.framework.TestCase;
 
+import javax.crypto.Cipher;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -28,10 +29,13 @@ public class PropertyBasedSimpleCipherKeyWrapperTest extends TestCase {
         long invocation = System.currentTimeMillis() - before;
         System.out.println("it took " + invocation + " ms to create the Decoder instance");
 
-        assertFalse("Hello World".equals(cipher.encrypt("Hello World")));
-        assertTrue("Hello World".equals(cipher.decrypt(cipher.encrypt("Hello World"))));
+        String encrypted = cipher.encrypt("Hello World");
+        assertFalse("Hello World".equals(encrypted));
 
-        assertTrue("a".equals(cipher.decrypt(cipher.encrypt("a"))));
+        //make sure the re-init does not compromise the decryption. This proves it'll work on 2nd Vm
+        cipher = null;
+        cipher = CipherFactory.getInstance();
+        assertTrue("Hello World".equals(cipher.decrypt(encrypted)));
     }
 
     public void testBigEncryptDecrypt() throws URISyntaxException, IOException {

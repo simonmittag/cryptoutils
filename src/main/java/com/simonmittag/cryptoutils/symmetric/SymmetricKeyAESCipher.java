@@ -9,6 +9,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.Calendar;
 
 /**
  * @author simonmittag
@@ -88,10 +89,14 @@ public class SymmetricKeyAESCipher implements SimpleSymmetricCipher {
                     int offset = bytes.length;
                     byte[] expanded = new byte[16];
                     System.arraycopy(bytes, 0, expanded, 0, offset);
-                    Arrays.fill(expanded, offset, 16, (byte)44);
+                    Arrays.fill(expanded, offset, 16, (byte)getFill());
                     return expanded;
                 }
             }
         }
+    }
+
+    protected int getFill() {
+        return Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
     }
 }

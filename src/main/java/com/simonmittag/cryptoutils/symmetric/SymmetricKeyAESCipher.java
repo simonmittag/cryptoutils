@@ -8,8 +8,9 @@ import org.apache.commons.codec.binary.Base64;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.Calendar;
+
+import static com.simonmittag.cryptoutils.ByteHelper.UTF_8;
+import static com.simonmittag.cryptoutils.ByteHelper.byteMe;
 
 /**
  * @author simonmittag
@@ -18,7 +19,6 @@ import java.util.Calendar;
  * @since <version>
  */
 public class SymmetricKeyAESCipher implements SimpleSymmetricCipher {
-    protected static final String UTF_8 = "UTF-8";
     protected static final String AES = "AES";
     protected static final String AES_CBC_PKCS5_PADDING = AES + "/CBC/PKCS5PADDING";
 
@@ -66,38 +66,5 @@ public class SymmetricKeyAESCipher implements SimpleSymmetricCipher {
 
     protected IvParameterSpec getIvParameterSpec() throws UnsupportedEncodingException {
         return new IvParameterSpec(byteMe(initVector));
-    }
-
-    /**
-     * Use this to get a 16 byte array out of any String that is *either* UTF-8 or BASE64 encoded.
-     * @param encoded
-     * @return
-     * @throws UnsupportedEncodingException
-     */
-    protected byte[] byteMe(String encoded) throws UnsupportedEncodingException {
-        byte [] bytes = encoded.getBytes(UTF_8);
-        if(bytes.length==16) {
-            return bytes;
-        } else {
-            bytes = Base64.decodeBase64(encoded);
-            if(bytes.length==16) {
-                return bytes;
-            } else {
-                if(bytes.length>16) {
-                    return Arrays.copyOf(bytes, 16);
-                } else {
-                    int offset = bytes.length;
-                    byte[] expanded = new byte[16];
-                    System.arraycopy(bytes, 0, expanded, 0, offset);
-                    Arrays.fill(expanded, offset, 16, (byte)getFill());
-                    return expanded;
-                }
-            }
-        }
-    }
-
-    protected int getFill() {
-        Calendar cal = Calendar.getInstance();
-        return cal.get(Calendar.MONTH)+cal.get(Calendar.DAY_OF_MONTH);
     }
 }

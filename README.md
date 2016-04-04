@@ -17,7 +17,7 @@ Using the library from code
 
 2) Create a random 16 byte String each (for the symmetric cipher).
 
-3) put cryptoutils-1.0-SNAPSHOT.jar in your classpath, then use it like so from within code, replacing the property values:
+3) put cryptoutils-1.0-SNAPSHOT.jar in your classpath, then use it like so from within code, replacing the property values with the base64 (UTF-8 Strings are ok for symmetric) encoded keys you generated in #1 and #2:
 
     System.setProperty("ASYMMETRIC_PRIVATE_KEY", "BASE64_PRIVATE_KEY")
     System.setProperty("ASYMMETRIC_PUBLIC_KEY", "BASE64_PUBLIC_KEY")

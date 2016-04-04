@@ -13,16 +13,19 @@ Use maven to build:
 Using the library from code
 ---------------------------
 
-Simply put the jar in your classpath, generate keys in Java, then use it like this:
+Simply put the jar in your classpath, generate keys, then use it like this:
 
-    SimpleSymmetricCipher cipher = CipherFactory.getInstance();
+    System.setProperty("ASYMMETRIC_PRIVATE_KEY", "BASE64_PRIVATE_KEY")
+    System.setProperty("ASYMMETRIC_PUBLIC_KEY", "BASE64_PUBLIC_KEY")
 
     or
 
-    SimpleCipher cipher = new AsymmetricKeyRSACipher(publicKey, privateKey);
-    
+    System.setProperty("SYMMETRIC_SECRET_KEY", "16_BYTE_SYMMETRIC_KEY";
+    System.setProperty("INIT_VECTOR", "16_BYTE_INIT_VECTOR";
 
-    then 
+    then
+
+    SimpleCipher cipher = new CipherFacade();
 
     String encrypted = cipher.encrypt("Hello World");
     String decrypted = cipher.decrypt(encrypted);
@@ -31,4 +34,4 @@ Simply put the jar in your classpath, generate keys in Java, then use it like th
 License
 -------
 
-Loggingutils uses the Apache license. 
+Cryptoutils uses the Apache license.

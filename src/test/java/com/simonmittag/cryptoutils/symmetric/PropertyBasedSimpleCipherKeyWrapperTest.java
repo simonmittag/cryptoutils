@@ -2,7 +2,6 @@ package com.simonmittag.cryptoutils.symmetric;
 
 import junit.framework.TestCase;
 
-import javax.crypto.Cipher;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -25,7 +24,7 @@ public class PropertyBasedSimpleCipherKeyWrapperTest extends TestCase {
      */
     public void testEncryptDecrypt() {
         long before = System.currentTimeMillis();
-        SimpleSymmetricCipher cipher = CipherFactory.getInstance();
+        SimpleSymmetricCipher cipher = new CipherFacade();
         long invocation = System.currentTimeMillis() - before;
         System.out.println("it took " + invocation + " ms to create the Decoder instance");
 
@@ -34,7 +33,7 @@ public class PropertyBasedSimpleCipherKeyWrapperTest extends TestCase {
 
         //make sure the re-init does not compromise the decryption. This proves it'll work on 2nd Vm
         cipher = null;
-        cipher = CipherFactory.getInstance();
+        cipher = new CipherFacade();
         assertTrue("Hello World".equals(cipher.decrypt(encrypted)));
     }
 

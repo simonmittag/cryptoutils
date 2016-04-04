@@ -19,7 +19,7 @@ public class PropertyBasedCipherKeyWrapperTest extends TestCase{
                 TEST_PUBLIC_KEY);
         System.setProperty(SimpleAsymmetricCipher.ASYMMETRIC_PRIVATE_KEY,
                 TEST_PRIVATE_KEY);
-        cipher = CipherFactory.getInstance();
+        cipher = new CipherFacade();
 
     }
     public void testEncryptDecrypt() {

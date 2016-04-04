@@ -13,9 +13,11 @@ Use maven to build:
 Using the library from code
 ---------------------------
 
-1) Use the key generator to create public/private keys (for asymmetric cipher) and save them to disk.
+1) Use AsymmetricRSAKeyPairGenerator to create public/private keys (for asymmetric cipher) and save them to disk.
 
-2) Create a random 16 byte String each (for the symmetric cipher).
+    mvn -q exec:java -Dexec.mainClass="com.simonmittag.cryptoutils.asymmetric.AsymmetricRSAKeyPairGenerator"
+
+2) Create a random 16 byte String each for symmetric secret key and init vector (for the symmetric cipher).
 
 3) put cryptoutils-1.0-SNAPSHOT.jar in your classpath, then use it like so from within code, replacing the property values with the base64 (UTF-8 Strings are ok for symmetric) encoded keys you generated in #1 and #2:
 

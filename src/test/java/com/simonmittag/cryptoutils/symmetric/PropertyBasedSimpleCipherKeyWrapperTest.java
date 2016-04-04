@@ -1,5 +1,6 @@
 package com.simonmittag.cryptoutils.symmetric;
 
+import com.simonmittag.cryptoutils.SimpleCipher;
 import junit.framework.TestCase;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class PropertyBasedSimpleCipherKeyWrapperTest extends TestCase {
      */
     public void testEncryptDecrypt() {
         long before = System.currentTimeMillis();
-        SimpleSymmetricCipher cipher = new CipherFacade();
+        SimpleCipher cipher = new CipherFacade();
         long invocation = System.currentTimeMillis() - before;
         System.out.println("it took " + invocation + " ms to create the Decoder instance");
 
@@ -41,7 +42,7 @@ public class PropertyBasedSimpleCipherKeyWrapperTest extends TestCase {
         String content = new String(Files.readAllBytes(
                 Paths.get(ClassLoader.getSystemResource("war_of_the_worlds.txt").toURI())
         ));
-        SimpleSymmetricCipher decoder = CipherFactory.getInstance();
+        SimpleCipher decoder = CipherFactory.getInstance();
 
         long before = System.currentTimeMillis();
         String encrypted = decoder.encrypt(content);

@@ -38,14 +38,4 @@
             <version>1.10</version>
         </dependency>
     </dependencies>
-    <distributionManagement>
-        <repository>
-            <id>nexus-releases</id>
-            <url>https://nexus.oneb4nk.com/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>https://nexus.oneb4nk.com/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
 </project>

@@ -66,7 +66,7 @@ public class AsymmetricKeyRSACipherTest {
         long elapsedNanos = after - before;
         System.out.printf(" and decryption of the same message took %s nanoseconds or %s microseconds or milliseconds",
                 elapsedNanos, elapsedNanos / 1000, elapsedNanos / 1000000);
-        return encrypted;
+        return decrypted;
     }
 
 

@@ -48,6 +48,7 @@ public class AsymmetricKeyRSACipherTest {
         do {
             printEncryptionPerformance(base*=2);
         } while (base<128);
+        //curious that RSA can only encrypt keylength / 8 - Padding bytes
     }
 
     public void printEncryptionPerformance(int lengthInBytes) throws UnsupportedEncodingException {

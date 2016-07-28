@@ -40,12 +40,12 @@ public class AsymmetricKeyRSACipherTest {
     public void testEncryptionPerformance() throws UnsupportedEncodingException {
         int base = 1;
         do {
-            printEncryptionPerformance(base *= 2);
+            printDecryptionPerformance(printEncryptionPerformance(base *= 2));
         } while (base < 128);
         //curious that RSA can only encrypt keylength / 8 - Padding bytes
     }
 
-    public void printEncryptionPerformance(int lengthInBytes) throws UnsupportedEncodingException {
+    public String printEncryptionPerformance(int lengthInBytes) throws UnsupportedEncodingException {
         String message = "";
         for (int i = 0; i < lengthInBytes; i++) {
             message += "a";
@@ -54,9 +54,21 @@ public class AsymmetricKeyRSACipherTest {
         String encrypted = cipher.encrypt(message);
         long after = System.nanoTime();
         long elapsedNanos = after - before;
-        System.out.printf("\nthe RSA 2048 encryption of %s bytes took %s nanoseconds or %s microseconds or milliseconds)",
+        System.out.printf("\nthe RSA 2048 encryption of %s bytes took %s nanoseconds or %s microseconds or milliseconds",
                 message.length(), elapsedNanos, elapsedNanos / 1000, elapsedNanos / 1000000);
+        return encrypted;
     }
+
+    public String printDecryptionPerformance(String encrypted) throws UnsupportedEncodingException {
+        long before = System.nanoTime();
+        String decrypted = cipher.decrypt(encrypted);
+        long after = System.nanoTime();
+        long elapsedNanos = after - before;
+        System.out.printf(" and decryption of the same message took %s nanoseconds or %s microseconds or milliseconds",
+                elapsedNanos, elapsedNanos / 1000, elapsedNanos / 1000000);
+        return encrypted;
+    }
+
 
     protected String readClassPathResourceAsString(String relativePath) {
         try {

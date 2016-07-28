@@ -57,7 +57,7 @@ public class AsymmetricKeyRSACipherTest {
         String encrypted = cipher.encrypt(message);
         long after = System.nanoTime();
         long elapsedNanos = after-before;
-        System.out.printf("\nthe encryption of %s bytes took %s nanoseconds (%s microseconds, %s milliseconds)",
+        System.out.printf("\nthe RSA 2048 encryption of %s bytes took %s nanoseconds (%s microseconds, %s milliseconds)",
                 message.length(), elapsedNanos, elapsedNanos/1000, elapsedNanos/1000000);
     }
 

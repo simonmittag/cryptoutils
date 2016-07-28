@@ -4,19 +4,13 @@
 package com.simonmittag.cryptoutils.asymmetric;
 
 import com.simonmittag.cryptoutils.SimpleCipher;
-import com.sun.xml.internal.fastinfoset.sax.SystemIdResolver;
-import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
-import sun.nio.cs.StandardCharsets;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.security.SecureRandom;
-import java.util.Random;
 
-import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -44,22 +38,24 @@ public class AsymmetricKeyRSACipherTest {
 
     @Test
     public void testEncryptionPerformance() throws UnsupportedEncodingException {
-        int base=1;
+        int base = 1;
         do {
-            printEncryptionPerformance(base*=2);
-        } while (base<128);
+            printEncryptionPerformance(base *= 2);
+        } while (base < 128);
         //curious that RSA can only encrypt keylength / 8 - Padding bytes
     }
 
     public void printEncryptionPerformance(int lengthInBytes) throws UnsupportedEncodingException {
         String message = "";
-        for(int i=0;i<lengthInBytes;i++) { message += "a"; }
+        for (int i = 0; i < lengthInBytes; i++) {
+            message += "a";
+        }
         long before = System.nanoTime();
         String encrypted = cipher.encrypt(message);
         long after = System.nanoTime();
-        long elapsedNanos = after-before;
-        System.out.printf("\nthe RSA 2048 encryption of %s bytes took %s nanoseconds (%s microseconds, %s milliseconds)",
-                message.length(), elapsedNanos, elapsedNanos/1000, elapsedNanos/1000000);
+        long elapsedNanos = after - before;
+        System.out.printf("\nthe RSA 2048 encryption of %s bytes took %s nanoseconds or %s microseconds or milliseconds)",
+                message.length(), elapsedNanos, elapsedNanos / 1000, elapsedNanos / 1000000);
     }
 
     protected String readClassPathResourceAsString(String relativePath) {

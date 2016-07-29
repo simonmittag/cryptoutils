@@ -38,6 +38,13 @@ Using the library from code
     String encrypted = cipher.encrypt("Hello World");
     String decrypted = cipher.decrypt(encrypted);
 
+
+Known Issues
+------------
+
+CryptoUtils was tested on Oracle JDK8+ with the built-in JCE provider. Other environments may vary
+
+
 License
 -------
 

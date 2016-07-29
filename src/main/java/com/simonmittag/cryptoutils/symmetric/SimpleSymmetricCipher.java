@@ -13,14 +13,14 @@ public interface SimpleSymmetricCipher extends SimpleCipher {
 
     /**
      * Set the symmetric key as String
-     * @param key
+     * @param key The symmetric key
      */
     public void setKey(String key);
 
 
     /**
-     * Set the asymmetric key as Strign
-     * @param initVector
+     * Set the asymmetric key as String
+     * @param initVector The init vector
      */
     public void setInitVector(String initVector);
 }

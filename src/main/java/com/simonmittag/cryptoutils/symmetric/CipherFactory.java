@@ -16,11 +16,19 @@ import static com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrappe
 import static com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrapper.SYMMETRIC_SECRET_KEY;
 
 /**
+ * Factory class for SimpleSymmetricCipher
  * @author simonmittag
  */
 public class CipherFactory {
+    /**
+     * We use SHA-1
+     */
     protected static final String SHA_1 = "SHA-1";
 
+    /**
+     * Create an instance of SimpleSymmetricCipher
+     * @return an instance of SimpleSymmetricCipher
+     */
     public static SimpleSymmetricCipher getInstance() {
         if (uninitialized(SYMMETRIC_SECRET_KEY)) {
             throw new RuntimeException(
@@ -33,13 +41,19 @@ public class CipherFactory {
         return new PropertyBasedCipherKeyWrapper(new SymmetricKeyAESCipher());
     }
 
+    /**
+     * Check if a property has been initialized
+     * @param property An environment variable or java system property
+     * @return true | false
+     */
     protected static boolean uninitialized(String property) {
         return getEnvOrProperty(property) == null;
     }
 
     /**
-     * Creates a too simple init vector that is based on day of month, but can be used predictably across machines.
-     * @return
+     * Creates a very simple init vector that is based on day of month, but can be used predictably across
+     * different instances for 24h
+     * @return a timed init vector that is guaranteed for 24h
      */
     protected static String getInitVector() {
         try {

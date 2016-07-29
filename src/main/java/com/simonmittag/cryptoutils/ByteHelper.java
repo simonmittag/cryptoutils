@@ -21,7 +21,7 @@ public class ByteHelper {
      * Use this to get a 16 byte array out of any String that is *either* UTF-8 or BASE64 encoded.
      * @param encoded The encoded String, should be UTF-8 String or can be Base64 encoded.
      * @return a semi-random byte[16], based on the input String.
-     * @throws UnsupportedEncodingException
+     * @throws UnsupportedEncodingException if an unsupported String format is used
      */
     public static byte[] byteMe(String encoded) throws UnsupportedEncodingException {
         byte [] bytes = encoded.getBytes(UTF_8);
@@ -46,8 +46,8 @@ public class ByteHelper {
     }
 
     /**
-     * Filler bytes, based on today's date
-     * @return
+     * Integers to use as fill for byte[]
+     * @return an integer
      */
     public static int getFill() {
         Calendar cal = Calendar.getInstance();

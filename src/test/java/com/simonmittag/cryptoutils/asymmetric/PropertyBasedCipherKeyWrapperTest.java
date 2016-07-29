@@ -7,6 +7,7 @@ import com.simonmittag.cryptoutils.SimpleCipher;
 import junit.framework.TestCase;
 
 /**
+ * Test Property wrapper
  * @author simonmittag
  */
 public class PropertyBasedCipherKeyWrapperTest extends TestCase{

@@ -15,6 +15,10 @@ import java.util.Calendar;
  * This class is *not* a secure key generator.
  */
 public class ByteHelper {
+
+    /**
+     * Constant for UTF-8 encoding
+     */
     public static final String UTF_8 = "UTF-8";
 
     /**

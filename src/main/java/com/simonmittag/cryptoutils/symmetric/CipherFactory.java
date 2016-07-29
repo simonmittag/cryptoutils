@@ -20,6 +20,7 @@ import static com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrappe
  * @author simonmittag
  */
 public class CipherFactory {
+
     /**
      * We use SHA-1
      */
@@ -67,6 +68,13 @@ public class CipherFactory {
         }
     }
 
+    /**
+     * Creates a SHA-1 digest
+     * @param msg the message to encode
+     * @return the SHA-1 digest as a byte[]
+     * @throws NoSuchAlgorithmException for ingestion error
+     * @throws UnsupportedEncodingException for ingestion error
+     */
     private static byte[] digest(String msg) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         return MessageDigest.getInstance(SHA_1).digest(msg.getBytes(UTF_8));
     }

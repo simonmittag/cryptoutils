@@ -10,6 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 
 /**
+ * String to byte conversion tests
  * @author simonmittag
  */
 public class ByteMeTest extends TestCase {

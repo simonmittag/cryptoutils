@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * Unit test for simple App.
+ * Test symmetric cipher
  */
 public class NoInitVectorSimpleCipherKeyTest extends TestCase {
 

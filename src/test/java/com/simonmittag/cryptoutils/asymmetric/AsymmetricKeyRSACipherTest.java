@@ -14,6 +14,7 @@ import java.nio.file.Paths;
 import static org.junit.Assert.assertEquals;
 
 /**
+ * Test AsymmetricKeyRSACipher
  * @author simonmittag
  */
 public class AsymmetricKeyRSACipherTest {

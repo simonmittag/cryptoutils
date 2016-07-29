@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * Unit test for simple App.
+ * Test property wrapper
  */
 public class PropertyBasedSimpleCipherKeyWrapperTest extends TestCase {
 

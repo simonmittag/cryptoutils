@@ -42,7 +42,7 @@ Using the library from code
 Known Issues
 ------------
 
-CryptoUtils was tested on Oracle JDK8+ with the built-in JCE provider. Other environments may vary
+Cryptoutils was tested on Oracle JDK8+ with the built-in JCE provider. Other environments may vary
 
 
 License

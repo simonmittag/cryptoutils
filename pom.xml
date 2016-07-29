@@ -6,6 +6,7 @@
     <packaging>jar</packaging>
     <version>1.0</version>
     <name>cryptoutils</name>
+    <description>ultra simple wrapper around Java's Cryptography extension (JCE)</description>
     <url>http://maven.apache.org</url>
 
     <build>

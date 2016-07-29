@@ -77,4 +77,10 @@
             <email>simonmittag@gmail.com</email>
         </developer>
     </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:simonmittag/cryptoutils.git</connection>
+        <developerConnection>scm:git:git@github.com:simonmittag/cryptoutils.git</developerConnection>
+        <url>https://github.com/simonmittag/cryptoutils.git</url>
+    </scm>
 </project>

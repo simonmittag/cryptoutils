@@ -49,7 +49,7 @@ public class ByteHelper {
      * Filler bytes, based on today's date
      * @return
      */
-    protected static int getFill() {
+    public static int getFill() {
         Calendar cal = Calendar.getInstance();
         return cal.get(Calendar.MONTH)+cal.get(Calendar.DAY_OF_MONTH);
     }

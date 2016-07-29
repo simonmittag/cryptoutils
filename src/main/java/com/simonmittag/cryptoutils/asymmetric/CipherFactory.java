@@ -23,7 +23,7 @@ public class CipherFactory {
         return new PropertyBasedCipherKeyWrapper(new AsymmetricKeyRSACipher());
     }
 
-    public static boolean uninitialized(String property) {
+    protected static boolean uninitialized(String property) {
         return getEnvOrProperty(property)==null;
     }
 }

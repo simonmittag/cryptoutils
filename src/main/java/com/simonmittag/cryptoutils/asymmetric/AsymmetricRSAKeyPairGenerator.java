@@ -14,8 +14,8 @@ import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.serializePrivateK
 import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.serializePublicKey;
 
 /**
+ * Generates a RSA 2048 bit private/public keypair
  * @author simonmittag
- * Generates 2048 Bit key length public/private RSA key pair
  */
 public class AsymmetricRSAKeyPairGenerator {
     protected static final String RSA = "RSA";
@@ -24,11 +24,20 @@ public class AsymmetricRSAKeyPairGenerator {
     protected static File publicKeyFile;
     protected static File privateKeyFile;
 
+    /**
+     * Static initialiser
+     */
     static {
         publicKeyFile = new File("public_key");
         privateKeyFile = new File("private_key");
     }
 
+    /**
+     * CLI access
+     * @param args
+     * @throws IOException for IO exception
+     * @throws GeneralSecurityException for GeneralSecurityException
+     */
     public static void main(String[] args) throws IOException, GeneralSecurityException {
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance(RSA);
         keyGen.initialize(KEY_LENGTH_BIT);
@@ -38,6 +47,13 @@ public class AsymmetricRSAKeyPairGenerator {
         writeKeyToFile(serializePrivateKey(keyPair.getPrivate()).getBytes(UTF_8), privateKeyFile);
     }
 
+    /**
+     * Write the key bytes to the file system
+     * @param bytes The key as byte[]
+     * @param keyFile The output file
+     * @throws IOException for IOException
+     * @throws GeneralSecurityException for GeneralSecurityException
+     */
     protected static void writeKeyToFile(byte[] bytes, File keyFile) throws IOException, GeneralSecurityException {
         FileOutputStream fos = new FileOutputStream(keyFile);
         fos.write(bytes);

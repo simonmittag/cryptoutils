@@ -7,6 +7,7 @@ import static com.simonmittag.cryptoutils.PropertyHelper.getEnvOrProperty;
 
 
 /**
+ * Creates Singleton instance of cipher
  * @author simonmittag
  */
 public class CipherFactory {

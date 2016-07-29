@@ -13,16 +13,38 @@ import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.deserializePrivat
 import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.deserializePublicKey;
 
 /**
+ * Default Asymmetric cipher with RSA/ECB/PKCS1Padding settings for UTF-8 Strings.
  * @author simonmittag
  */
 public class AsymmetricKeyRSACipher implements SimpleAsymmetricCipher {
+    /**
+     * Default text encoding
+     */
     protected static final String UTF_8 = "UTF-8";
+
+    /**
+     * Default cipher suite using RSA encryption with PKCS1 padding
+     */
     protected static String RSA_ECB_PKCS1_PADDING = "RSA/ECB/PKCS1Padding";
 
-    Cipher cipher;
-    RSAPublicKey publicKey;
-    RSAPrivateKey privateKey;
+    /**
+     * The JCE cipher used for encryption / decryption
+     */
+    protected Cipher cipher;
 
+    /**
+     * RSA public key
+     */
+    protected RSAPublicKey publicKey;
+
+    /**
+     * RSA private key
+     */
+    protected RSAPrivateKey privateKey;
+
+    /**
+     * Creates a default cipher instance
+     */
     public AsymmetricKeyRSACipher() {
         try {
             this.cipher = Cipher.getInstance(RSA_ECB_PKCS1_PADDING);
@@ -31,6 +53,11 @@ public class AsymmetricKeyRSACipher implements SimpleAsymmetricCipher {
         }
     }
 
+    /**
+     * Creates a default cipher instance iwth a base64 encoded private and public keypair
+     * @param publicKey a base64 encoded public key
+     * @param privateKey a base64 encoded private key
+     */
     public AsymmetricKeyRSACipher(String publicKey, String privateKey) {
         try {
             this.publicKey = (RSAPublicKey) deserializePublicKey(publicKey);
@@ -41,6 +68,10 @@ public class AsymmetricKeyRSACipher implements SimpleAsymmetricCipher {
         }
     }
 
+    /**
+     * Set the public key
+     * @param publicKey base64 encoded public key
+     */
     public void setPublicKey(String publicKey) {
         try {
             this.publicKey = (RSAPublicKey) deserializePublicKey(publicKey);
@@ -49,6 +80,10 @@ public class AsymmetricKeyRSACipher implements SimpleAsymmetricCipher {
         }
     }
 
+    /**
+     * Set the private key
+     * @param privateKey base64 encoded private key
+     */
     public void setPrivateKey(String privateKey) {
         try {
             this.privateKey = (RSAPrivateKey) deserializePrivateKey(privateKey);
@@ -57,6 +92,11 @@ public class AsymmetricKeyRSACipher implements SimpleAsymmetricCipher {
         }
     }
 
+    /**
+     * Encrypts a raw String
+     * @param raw The raw String message to encrypt
+     * @return The encrypted String
+     */
     public String encrypt(String raw) {
         try {
             cipher.init(Cipher.ENCRYPT_MODE, publicKey);
@@ -67,6 +107,11 @@ public class AsymmetricKeyRSACipher implements SimpleAsymmetricCipher {
 
     }
 
+    /**
+     * Decrypts an encrypted String
+     * @param encrypted The encrypted String message to decrypt
+     * @return A decrypted String
+     */
     public String decrypt(String encrypted) {
         try {
             cipher.init(Cipher.DECRYPT_MODE, privateKey);

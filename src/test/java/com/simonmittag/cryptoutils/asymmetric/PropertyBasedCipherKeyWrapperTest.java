@@ -8,7 +8,6 @@ import junit.framework.TestCase;
 
 /**
  * @author simonmittag
- * @since <version>
  */
 public class PropertyBasedCipherKeyWrapperTest extends TestCase{
     public static final String TEST_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjd0y/K5/QxIhv3kdIbbCvNc0jXRgEa8wnV1V8vaZ1eqJtoGiImQ8XjK1j0cjfN4HyqWOBzsnjCrYTom6TsuiyQho7S6Jd5MMtuKCEmgFb8bbhL3KiT14yHCbuFqeYbpkCSYkYCQ0lEtVPNx6OFT8gp/ExjnGWcGvgPt5N1p71/ijsNh/Yfe5bT3yCW4fIyZt9vHFcj9uoKpEygE/IxZQ+vl5tlicR/zwpieskDrVFMyWd3GRWpcWJ6WgzVZZSM2TtxPTiZWTmZP3XPFXd18vbdqTpVniexWMez0owaryBAPrgqfX5mRov+BNwQrdMzHN2iEkCVEJr+8TIRv00niOhQIDAQAB";

@@ -15,8 +15,7 @@ import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.serializePublicKe
 
 /**
  * @author simonmittag
- * Generates 2048 Bit key length private key pair
- * @since <version>
+ * Generates 2048 Bit key length public/private RSA key pair
  */
 public class AsymmetricRSAKeyPairGenerator {
     protected static final String RSA = "RSA";

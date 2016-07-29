@@ -11,7 +11,6 @@ import java.util.Base64;
 
 /**
  * @author simonmittag
- * @since <version>
  */
 public class ByteMeTest extends TestCase {
 

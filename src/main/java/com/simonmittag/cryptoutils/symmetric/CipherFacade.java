@@ -7,7 +7,6 @@ import com.simonmittag.cryptoutils.SimpleCipher;
 
 /**
  * @author simonmittag
- * @since <version>
  */
 public class CipherFacade implements SimpleCipher {
     protected SimpleSymmetricCipher cipher;

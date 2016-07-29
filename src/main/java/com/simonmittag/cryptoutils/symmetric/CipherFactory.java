@@ -17,7 +17,6 @@ import static com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrappe
 
 /**
  * @author simonmittag
- * @since <version>
  */
 public class CipherFactory {
     protected static final String SHA_1 = "SHA-1";

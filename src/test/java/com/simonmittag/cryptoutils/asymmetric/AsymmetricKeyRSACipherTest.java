@@ -15,7 +15,6 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author simonmittag
- * @since <version>
  */
 public class AsymmetricKeyRSACipherTest {
     protected String publicKey;

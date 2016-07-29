@@ -5,7 +5,6 @@ package com.simonmittag.cryptoutils;
 
 /**
  * @author simonmittag
- * @since <version>
  */
 public class PropertyHelper {
 

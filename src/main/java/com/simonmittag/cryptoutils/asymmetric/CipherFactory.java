@@ -8,7 +8,6 @@ import static com.simonmittag.cryptoutils.PropertyHelper.getEnvOrProperty;
 
 /**
  * @author simonmittag
- * @since <version>
  */
 public class CipherFactory {
     public static SimpleAsymmetricCipher getInstance() {

@@ -7,7 +7,6 @@ import com.simonmittag.cryptoutils.SimpleCipher;
 
 /**
  * @author simonmittag
- * @since <version>
  */
 public interface SimpleAsymmetricCipher extends SimpleCipher {
     public static final String ASYMMETRIC_PRIVATE_KEY = "ASYMMETRIC_PRIVATE_KEY";

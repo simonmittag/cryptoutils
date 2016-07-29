@@ -15,7 +15,6 @@ import java.util.Arrays;
 
 /**
  * @author simonmittag
- * @since <version>
  */
 public class KeyHelper {
     protected static String RSA = "RSA";

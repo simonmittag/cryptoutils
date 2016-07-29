@@ -7,7 +7,6 @@ import static com.simonmittag.cryptoutils.PropertyHelper.getEnvOrProperty;
 
 /**
  * @author simonmittag
- * @since <version>
  */
 public class PropertyBasedCipherKeyWrapper implements SimpleSymmetricCipher {
     public static final String SYMMETRIC_SECRET_KEY = "SYMMETRIC_SECRET_KEY";

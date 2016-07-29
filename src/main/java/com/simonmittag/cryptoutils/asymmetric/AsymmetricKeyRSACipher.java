@@ -14,7 +14,6 @@ import static com.simonmittag.cryptoutils.asymmetric.KeyHelper.deserializePublic
 
 /**
  * @author simonmittag
- * @since <version>
  */
 public class AsymmetricKeyRSACipher implements SimpleAsymmetricCipher {
     protected static final String UTF_8 = "UTF-8";

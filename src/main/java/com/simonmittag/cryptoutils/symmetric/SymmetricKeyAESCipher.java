@@ -14,9 +14,7 @@ import static com.simonmittag.cryptoutils.ByteHelper.byteMe;
 
 /**
  * @author simonmittag
- * AES Cipher
- * UTF-8
- * @since <version>
+ * AES128 Symmetric Cipher for UTF-8 encoded Strings
  */
 public class SymmetricKeyAESCipher implements SimpleSymmetricCipher {
     protected static final String AES = "AES";

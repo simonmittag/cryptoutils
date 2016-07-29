@@ -70,4 +70,11 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
+
+    <developers>
+        <developer>
+            <name>Simon Mittag</name>
+            <email>simonmittag@gmail.com</email>
+        </developer>
+    </developers>
 </project>

@@ -11,8 +11,8 @@ public class PropertyHelper {
 
     /**
      * Return system environment variable or property
-     * @param key
-     * @return
+     * @param key The property to lookup
+     * @return The return value
      */
     public static String getEnvOrProperty(String key) {
         String value = System.getenv(key);

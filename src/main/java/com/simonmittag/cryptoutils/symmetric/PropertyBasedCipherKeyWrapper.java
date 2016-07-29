@@ -28,7 +28,7 @@ public class PropertyBasedCipherKeyWrapper implements SimpleSymmetricCipher {
 
     /**
      * Creates instance to delegate to
-     * @param cipher
+     * @param cipher The cipher instance
      */
     public PropertyBasedCipherKeyWrapper(SimpleSymmetricCipher cipher) {
         this.cipher = cipher;
@@ -37,8 +37,8 @@ public class PropertyBasedCipherKeyWrapper implements SimpleSymmetricCipher {
     }
 
     /**
-     * Set the symmetric Key
-     * @param symmetricKey
+     * Set the symmetric key
+     * @param symmetricKey The symmetric key
      */
     public void setKey(String symmetricKey) {
         this.cipher.setKey(symmetricKey);

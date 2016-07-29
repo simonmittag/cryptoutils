@@ -33,8 +33,8 @@ public class AsymmetricRSAKeyPairGenerator {
     }
 
     /**
-     * CLI access
-     * @param args
+     * Runs with no args
+     * @param args CLI args - empty
      * @throws IOException for IO exception
      * @throws GeneralSecurityException for GeneralSecurityException
      */

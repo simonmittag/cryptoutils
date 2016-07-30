@@ -55,8 +55,7 @@ public class NoInitVectorSimpleCipherKeyTest extends TestCase {
         String encrypted = cipher.encrypt(message);
         long after = System.nanoTime();
         long elapsedNanos = after-before;
-        System.out.printf("\nthe AES128 encryption of %s bytes took %s nanoseconds or %s microseconds or %s milliseconds)",
-                message.length(), elapsedNanos, elapsedNanos/1000, elapsedNanos/1000000);
+        System.out.printf("\nthe AES128 encryption of %s bytes took %s ms", message.length(), elapsedNanos/1000000);
         return encrypted;
     }
 
@@ -66,8 +65,7 @@ public class NoInitVectorSimpleCipherKeyTest extends TestCase {
         String decrypted = cipher.encrypt(encrypted);
         long after = System.nanoTime();
         long elapsedNanos = after-before;
-        System.out.printf("and decryption of the same message took %s nanoseconds or %s microseconds or %s milliseconds)",
-                elapsedNanos, elapsedNanos/1000, elapsedNanos/1000000);
+        System.out.printf(" and decryption took %s ms", elapsedNanos/1000000);
         return encrypted;
     }
 

@@ -25,7 +25,7 @@ public class AsymmetricRSAKeyPairGenerator {
     protected static File privateKeyFile;
 
     /**
-     * Static initialiser
+     * Static initialiser creates two key files in local directory
      */
     static {
         publicKeyFile = new File("public_key");

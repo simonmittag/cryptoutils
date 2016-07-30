@@ -9,8 +9,8 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
 
-import static com.simonmittag.cryptoutils.ByteHelper.UTF_8;
-import static com.simonmittag.cryptoutils.ByteHelper.byteMe;
+import static com.simonmittag.cryptoutils.ByteArrayHelper.UTF_8;
+import static com.simonmittag.cryptoutils.ByteArrayHelper.generateSixteenByteLongArray;
 
 /**
  * AES128 Symmetric Cipher for UTF-8 encoded Strings
@@ -103,7 +103,7 @@ public class SymmetricKeyAESCipher implements SimpleSymmetricCipher {
      * @throws UnsupportedEncodingException for key errors
      */
     protected SecretKeySpec getSecretKeySpec() throws UnsupportedEncodingException {
-        return new SecretKeySpec(byteMe(key), 0, 16, AES);
+        return new SecretKeySpec(generateSixteenByteLongArray(key), 0, 16, AES);
     }
 
     /**
@@ -112,6 +112,6 @@ public class SymmetricKeyAESCipher implements SimpleSymmetricCipher {
      * @throws UnsupportedEncodingException for key errors
      */
     protected IvParameterSpec getIvParameterSpec() throws UnsupportedEncodingException {
-        return new IvParameterSpec(byteMe(initVector));
+        return new IvParameterSpec(generateSixteenByteLongArray(initVector));
     }
 }

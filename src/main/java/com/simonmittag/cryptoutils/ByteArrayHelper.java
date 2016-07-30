@@ -11,10 +11,11 @@ import java.util.Calendar;
 
 /**
  * Turn a fixed length String into a byte[] to use as symmetric key or init vector.
- * Fills Strings that are too short with semi-random data. Crops Strings that are too long.
- * This class is *not* a secure key generator.
+ * Fills Strings that are too short with zeroed bytes. Crops Strings that are too long.
+ * Note this class converts to byte[] for convenience, not with security front of mind. You are
+ * recommended to use good 16 byte Strings as key input material.
  */
-public class ByteHelper {
+public class ByteArrayHelper {
 
     /**
      * Constant for UTF-8 encoding
@@ -27,7 +28,7 @@ public class ByteHelper {
      * @return a semi-random byte[16], based on the input String.
      * @throws UnsupportedEncodingException if an unsupported String format is used
      */
-    public static byte[] byteMe(String encoded) throws UnsupportedEncodingException {
+    public static byte[] generateSixteenByteLongArray(String encoded) throws UnsupportedEncodingException {
         byte [] bytes = encoded.getBytes(UTF_8);
         if(bytes.length==16) {
             return bytes;
@@ -42,7 +43,7 @@ public class ByteHelper {
                     int offset = bytes.length;
                     byte[] expanded = new byte[16];
                     System.arraycopy(bytes, 0, expanded, 0, offset);
-                    Arrays.fill(expanded, offset, 16, (byte)getFill());
+                    Arrays.fill(expanded, offset, 16, getFillerByte());
                     return expanded;
                 }
             }
@@ -50,11 +51,10 @@ public class ByteHelper {
     }
 
     /**
-     * Integers to use as fill for byte[]
+     * Uses ascii zeroes as filler bytes
      * @return an integer
      */
-    public static int getFill() {
-        Calendar cal = Calendar.getInstance();
-        return cal.get(Calendar.MONTH)+cal.get(Calendar.DAY_OF_MONTH);
+    public static byte getFillerByte() {
+        return (byte)0l;
     }
 }

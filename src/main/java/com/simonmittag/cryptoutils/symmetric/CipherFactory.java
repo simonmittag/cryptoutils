@@ -8,15 +8,17 @@ import org.apache.commons.codec.binary.Base64;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 
-import static com.simonmittag.cryptoutils.ByteHelper.UTF_8;
-import static com.simonmittag.cryptoutils.ByteHelper.getFill;
+import static com.simonmittag.cryptoutils.ByteArrayHelper.UTF_8;
+import static com.simonmittag.cryptoutils.ByteArrayHelper.getFillerByte;
 import static com.simonmittag.cryptoutils.PropertyHelper.getEnvOrProperty;
 import static com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrapper.INIT_VECTOR;
 import static com.simonmittag.cryptoutils.symmetric.PropertyBasedCipherKeyWrapper.SYMMETRIC_SECRET_KEY;
 
 /**
- * Factory class for SimpleSymmetricCipher
+ * Factory class for SimpleSymmetricCipher. Can create a symmetric cipher only with secret key
+ * and provide init vector. This is not secure and only recommended for testing.
  * @author simonmittag
  */
 public class CipherFactory {
@@ -52,16 +54,17 @@ public class CipherFactory {
     }
 
     /**
-     * Creates a very simple init vector that is based on day of month, but can be used predictably across
-     * different instances for 24h
-     * @return a timed init vector that is guaranteed for 24h
+     * Creates a very simple init vector if one wasn't supplied for convenience.
+     * Do not recommend this in production, always choose a good INIT_VECTOR for initialisation.
+     * @return an init vector
      */
     protected static String getInitVector() {
         try {
-            byte[] initVector = (getFill()+"").getBytes(UTF_8);
+            byte[] initVector = new byte[]{getFillerByte()};
             while(initVector.length<16) {
-                initVector = digest(initVector+"");
+                initVector = digest(new String(initVector));
             }
+            initVector = Arrays.copyOf(initVector,16);
             return Base64.encodeBase64String(initVector);
         } catch (Exception e) {
             throw new RuntimeException(e);

@@ -1,5 +1,5 @@
 /*
- * CellBlockCipherWrapper
+ * PropertyBasedCipherKeyWrapper
  */
 package com.simonmittag.cryptoutils.symmetric;
 

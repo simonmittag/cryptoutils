@@ -38,7 +38,7 @@ public class CipherFactory {
                     "DecoderFactory not initialized, have you set SYMMETRIC_SECRET_KEY as System property with a 16 Byte key?");
         }
         if (uninitialized(INIT_VECTOR)) {
-            System.setProperty(INIT_VECTOR, getInitVector());
+            System.setProperty(INIT_VECTOR, createUnsafeInitVector());
         }
 
         return new PropertyBasedCipherKeyWrapper(new SymmetricKeyAESCipher());
@@ -58,7 +58,7 @@ public class CipherFactory {
      * Do not recommend this in production, always choose a good INIT_VECTOR for initialisation.
      * @return an init vector
      */
-    protected static String getInitVector() {
+    protected static String createUnsafeInitVector() {
         try {
             byte[] initVector = new byte[]{getFillerByte()};
             while(initVector.length<16) {

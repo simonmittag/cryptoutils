@@ -3,12 +3,23 @@ Cryptoutils
 
 Provides an ultra simple wrapper around Java's Cryptography extension (JCE) and factory methods for AES 128 Bit symmetric key ciphers, and RSA 2048 Bit asymmetric key ciphers with encryption/decryption methods. See unit test cases for details.
 
-Building and running
+Building from source
 --------------------
 
 Use maven to build:
 
     mvn clean package
+
+Import
+------
+
+Declare as dependency in maven
+
+    <dependency>
+      <groupId>com.simonmittag</groupId>
+      <artifactId>cryptoutils</artifactId>
+      <version>1.0</version>
+    </dependency>
 
 Using the library from code
 ---------------------------
